@@ -1,2 +1,2 @@
 # sentry-react
-Sample react using sentry
+Sample react app using sentry
