@@ -9,13 +9,10 @@ const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 Sentry.init({
+  // dsn: process.env.NODE_ENV === "production" ? process.env.REACT_APP_SENTRY_DSN : undefined,
   dsn: process.env.REACT_APP_SENTRY_DSN,
   integrations: [new BrowserTracing()],
-
-  // Set tracesSampleRate to 1.0 to capture 100%
-  // of transactions for performance monitoring.
-  // We recommend adjusting this value in production
-  tracesSampleRate: 1.0,
+  environment: process.env.REACT_APP_ENV,
 });
 
 root.render(
