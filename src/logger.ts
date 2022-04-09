@@ -7,10 +7,13 @@ import {
 import { BrowserTracing } from "@sentry/tracing";
 
 init({
-  // dsn: process.env.NODE_ENV === "production" ? process.env.REACT_APP_SENTRY_DSN : undefined,
-  dsn: process.env.REACT_APP_SENTRY_DSN,
+  dsn:
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_SENTRY_DSN
+      : undefined,
   integrations: [new BrowserTracing()],
   environment: process.env.REACT_APP_ENV,
+  release: process.env.REACT_APP_RELEASE_VERSION,
 });
 
 const logger = {
