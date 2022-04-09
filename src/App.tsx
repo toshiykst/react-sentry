@@ -3,7 +3,7 @@ import "./App.css";
 import logger from "./logger";
 
 const App: React.VFC = () => {
-  const handleClickOccurError = useCallback(() => {
+  const onError = useCallback(() => {
     try {
       throw new Error("an error ocurred by clicking break the world");
     } catch (e) {
@@ -17,9 +17,7 @@ const App: React.VFC = () => {
     <div className="App">
       <header className="App-header">React sentry sample</header>
       <div>
-        <button onClick={handleClickOccurError}>Break the world</button>
-        {/* @ts-ignore */}
-        {/* <button onClick={noExistFunc}>No exist func</button> */}
+        <button onClick={onError}>Break the world</button>
       </div>
     </div>
   );
